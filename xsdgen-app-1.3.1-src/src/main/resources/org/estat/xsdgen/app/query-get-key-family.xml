@@ -1,0 +1,20 @@
+<RegistryInterface xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+                   xmlns:registry="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/registry"
+                   xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
+                   xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message SDMXMessage.xsd">
+    <Header>
+        <ID>XSDGEN_APP</ID>
+        <Test>true</Test>
+        <Prepared>2011-03-30T12:15:01+03:00</Prepared>
+        <Sender id="ESTAT"/>
+    </Header>
+    <QueryStructureRequest resolveReferences="true" returnDetails="true">
+        <registry:KeyFamilyRef>
+            <registry:AgencyID>{0}</registry:AgencyID>
+            <registry:KeyFamilyID>{1}</registry:KeyFamilyID>
+            <registry:Version>{2}</registry:Version>
+        </registry:KeyFamilyRef>
+    </QueryStructureRequest>
+</RegistryInterface>

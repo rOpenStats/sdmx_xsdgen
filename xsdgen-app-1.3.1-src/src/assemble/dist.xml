@@ -1,0 +1,24 @@
+<assembly>
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>src/distribution</directory>
+            <outputDirectory></outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>libs</outputDirectory>
+            <includes>
+                <include>org.estat.xsdgen:xsdgen-app</include>
+            </includes>
+            <scope>compile</scope>
+        </dependencySet>
+    </dependencySets>
+</assembly>

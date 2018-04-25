@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Structure xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message"
+           xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common"
+           xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+</Structure>
