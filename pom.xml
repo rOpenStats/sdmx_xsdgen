@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.estat.xsdgen</groupId>
+	<artifactId>xsdgen</artifactId>
+	<version>1.3.1</version>
+	<packaging>pom</packaging>
+	<name>sdmx_xsdgen</name>
+	<description>sdmx_xsdgen</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<jodatime.version>2.7</jodatime.version>
+		<roo.version>1.3.1.RELEASE</roo.version> <!-- original 1.2.5.RELEASE -->
+		<aspectj.version>1.8.1</aspectj.version>
+		<slf4j.version>1.7.10</slf4j.version>
+		<spring.version>4.1.6.RELEASE</spring.version> <!-- original 4.0.8.RELEASE -->
+		<postgresql.version>9.3-1102-jdbc41</postgresql.version> <!-- original 9.1-901-1.jdbc4 -->
+		<hibernate.version>4.3.8.Final</hibernate.version>
+		<hibernate.validator.version>5.1.3.Final</hibernate.validator.version> <!-- original 4.3.1.Final -->
+		<primefaces.version>5.2</primefaces.version>
+		<primefaces.extensions.version>3.1.0</primefaces.extensions.version>
+		<jadira.version>3.2.0.GA</jadira.version>
+		<pegdown.version>1.4.2</pegdown.version>
+		<fop.version>1.1</fop.version>
+		<saxon.version>9.6.0-1</saxon.version>
+		<javassist.version>3.19.0-GA</javassist.version>
+		<liferay.faces.version>4.2.0-m2</liferay.faces.version> <!-- original one 3.2.4-ga5 -->
+		<mojarra.version>2.2.10</mojarra.version> <!-- 2.1.29-01 for liferay 3.2 branch -->
+		<spring.security.version>3.2.5.RELEASE</spring.security.version>
+		<spring.ldap.version>2.0.2.RELEASE</spring.ldap.version>
+		<liferay.version>6.2.2</liferay.version>
+		<spring.data.version>1.7.2.RELEASE</spring.data.version>
+	</properties>
+	<modules>
+		<module>xsdgen-lib-2.0-1.3.1-src</module>
+		<module>xsdgen-lib-2.1-1.3.1-src</module>
+
+		<module>xsdgen-app-1.3.1-src</module>
+	</modules>
+	<repositories>
+		<repository>
+			<id>spring-maven-release</id>
+			<name>Spring Maven Release Repository</name>
+			<url>http://maven.springframework.org/release</url>
+		</repository>
+		<repository>
+			<id>spring-roo-repository</id>
+			<name>Spring Roo Repository</name>
+			<url>http://spring-roo-repository.springsource.org/release</url>
+		</repository>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>milton-repo</id>
+			<url>http://milton.io/maven/</url>
+			<name>Milton webDav Maven Repository</name>
+		</repository>
+		<repository>
+			<id>liferay-previews</id>
+			<url>
+      https://repository.liferay.com/nexus/content/repositories/liferay-previews
+    </url>
+		</repository>
+	</repositories>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<aggregate>true</aggregate>
+					<quiet>true</quiet>
+					<links>
+					</links>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
