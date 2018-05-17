@@ -1,7 +1,7 @@
 <assembly>
-    <formats>
+    <!--  <formats>
         <format>zip</format>
-    </formats>
+    </formats> -->
 
     <includeBaseDirectory>false</includeBaseDirectory>
 

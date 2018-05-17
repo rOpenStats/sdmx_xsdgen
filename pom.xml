@@ -2,41 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.estat.xsdgen</groupId>
+	<groupId>org.estat</groupId>
 	<artifactId>xsdgen</artifactId>
 	<version>1.3.1</version>
 	<packaging>pom</packaging>
 	<name>sdmx_xsdgen</name>
 	<description>sdmx_xsdgen</description>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<jodatime.version>2.7</jodatime.version>
-		<roo.version>1.3.1.RELEASE</roo.version> <!-- original 1.2.5.RELEASE -->
-		<aspectj.version>1.8.1</aspectj.version>
-		<slf4j.version>1.7.10</slf4j.version>
-		<spring.version>4.1.6.RELEASE</spring.version> <!-- original 4.0.8.RELEASE -->
-		<postgresql.version>9.3-1102-jdbc41</postgresql.version> <!-- original 9.1-901-1.jdbc4 -->
-		<hibernate.version>4.3.8.Final</hibernate.version>
-		<hibernate.validator.version>5.1.3.Final</hibernate.validator.version> <!-- original 4.3.1.Final -->
-		<primefaces.version>5.2</primefaces.version>
-		<primefaces.extensions.version>3.1.0</primefaces.extensions.version>
-		<jadira.version>3.2.0.GA</jadira.version>
-		<pegdown.version>1.4.2</pegdown.version>
-		<fop.version>1.1</fop.version>
-		<saxon.version>9.6.0-1</saxon.version>
-		<javassist.version>3.19.0-GA</javassist.version>
-		<liferay.faces.version>4.2.0-m2</liferay.faces.version> <!-- original one 3.2.4-ga5 -->
-		<mojarra.version>2.2.10</mojarra.version> <!-- 2.1.29-01 for liferay 3.2 branch -->
-		<spring.security.version>3.2.5.RELEASE</spring.security.version>
-		<spring.ldap.version>2.0.2.RELEASE</spring.ldap.version>
-		<liferay.version>6.2.2</liferay.version>
-		<spring.data.version>1.7.2.RELEASE</spring.data.version>
+		<java.version>9</java.version>
 	</properties>
 	<modules>
 		<module>xsdgen-lib-2.0-1.3.1-src</module>
 		<module>xsdgen-lib-2.1-1.3.1-src</module>
-
 		<module>xsdgen-app-1.3.1-src</module>
 	</modules>
 	<repositories>
@@ -61,12 +41,6 @@
 			<url>http://milton.io/maven/</url>
 			<name>Milton webDav Maven Repository</name>
 		</repository>
-		<repository>
-			<id>liferay-previews</id>
-			<url>
-      https://repository.liferay.com/nexus/content/repositories/liferay-previews
-    </url>
-		</repository>
 	</repositories>
 	<reporting>
 		<plugins>
@@ -83,4 +57,58 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	<dependencies>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.beust</groupId>
+            <artifactId>jcommander</artifactId>
+            <version>1.48</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-discovery</groupId>
+            <artifactId>commons-discovery</artifactId>
+            <version>0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
+        <!-- This is required only to avoid an Axis warning message. -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.1</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
 </project>

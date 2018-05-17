@@ -1,95 +1,113 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.estat.xsdgen</groupId>
-    <artifactId>xsdgen-app</artifactId>
-    <packaging>jar</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.estat.xsdgen</groupId>
+	<artifactId>xsdgen-app</artifactId>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>org.estat</groupId>
+		<artifactId>xsdgen</artifactId>
+		<version>1.3.1</version>
+	</parent>
+	<name>SDMX XSD Generator - Application</name>
+	<version>1.3.1.a</version>
+	<inceptionYear>2012</inceptionYear>
+	<properties>
+		<main.class>org.estat.xsdgen.app.XSDGeneratorRun</main.class>
+	</properties>
 
-    <name>SDMX XSD Generator - Application</name>
-    <version>1.3.1</version>
-    <inceptionYear>2012</inceptionYear>
+	<developers>
+		<developer>
+			<id>stanescu</id>
+			<name>Sorin Stanescu</name>
+			<email>sorin.stanescu@intrasoft-intl.com</email>
+			<organization>INTRASOFT International</organization>
+			<organizationUrl>http://www.intrasoft-intl.com</organizationUrl>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
 
-    <developers>
-        <developer>
-            <id>stanescu</id>
-            <name>Sorin Stanescu</name>
-            <email>sorin.stanescu@intrasoft-intl.com</email>
-            <organization>INTRASOFT International</organization>
-            <organizationUrl>http://www.intrasoft-intl.com</organizationUrl>
-            <roles>
-                <role>Developer</role>
-            </roles>
-        </developer>
+		<developer>
+			<id>viaseb</id>
+			<name>Viatour Sébastien</name>
+			<email>sebastien.viatour@intrasoft-intl.com</email>
+			<organization>INTRASOFT International</organization>
+			<organizationUrl>http://www.intrasoft-intl.com</organizationUrl>
+			<roles>
+				<role>Senior IT Consultant</role>
+			</roles>
+		</developer>
+	</developers>
 
-        <developer>
-            <id>viaseb</id>
-            <name>Viatour Sébastien</name>
-            <email>sebastien.viatour@intrasoft-intl.com</email>
-            <organization>INTRASOFT International</organization>
-            <organizationUrl>http://www.intrasoft-intl.com</organizationUrl>
-            <roles>
-                <role>Senior IT Consultant</role>
-            </roles>
-        </developer>
-    </developers>
+	<organization>
+		<name>INTRASOFT International</name>
+		<url>http://www.intrasoft-intl.com</url>
+	</organization>
 
-    <organization>
-        <name>INTRASOFT International</name>
-        <url>http://www.intrasoft-intl.com</url>
-    </organization>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>org.estat.xsdgen.app.XSDGeneratorRun</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptors>
-                        <descriptor>src/assemble/dist.xml</descriptor>
-                    </descriptors>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>attached</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8.1</version>
-            </plugin>
-        </plugins>
-    </build>
-
-    <dependencies>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>${project.build.finalName}.lib/</classpathPrefix>
+							<mainClass>${fully.qualified.main.class}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> 
+				<version>3.1.0</version> <configuration> <archive> <index>true</index> <manifest> 
+				<addClasspath>true</addClasspath> </manifest> <manifestEntries> <mode>development</mode> 
+				<url>${project.url}</url> <key>value</key> </manifestEntries> </archive> 
+				</configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>${main.class}</mainClass>
+								</manifest>
+							</archive>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.8.1</version>
+			</plugin>
+		</plugins>
+	</build>
+<dependencies>
         <dependency>
             <groupId>org.estat.xsdgen</groupId>
             <artifactId>xsdgen-lib_2.0</artifactId>
@@ -100,56 +118,6 @@
             <artifactId>xsdgen-lib_2.1</artifactId>
             <version>1.3.1</version>
         </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>axis</groupId>
-            <artifactId>axis</artifactId>
-            <version>1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.beust</groupId>
-            <artifactId>jcommander</artifactId>
-            <version>1.48</version>
-        </dependency>
+        </dependencies>
 
-        <dependency>
-            <groupId>commons-discovery</groupId>
-            <artifactId>commons-discovery</artifactId>
-            <version>0.4</version>
-        </dependency>
-        <dependency>
-            <groupId>wsdl4j</groupId>
-            <artifactId>wsdl4j</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-
-        <!-- This is required only to avoid an Axis warning message. -->
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.1</version>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 </project>
